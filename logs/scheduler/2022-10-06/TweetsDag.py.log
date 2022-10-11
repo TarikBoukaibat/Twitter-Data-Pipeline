@@ -1,0 +1,729 @@
+[2022-10-06T15:53:09.979+0000] {processor.py:156} INFO - Started process (PID=144) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T15:53:10.020+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T15:53:10.030+0000] {logging_mixin.py:117} INFO - [2022-10-06T15:53:10.026+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T15:53:40.059+0000] {logging_mixin.py:117} INFO - [2022-10-06T15:53:40.058+0000] {timeout.py:68} ERROR - Process timed out, PID: 144
+[2022-10-06T15:53:40.092+0000] {logging_mixin.py:117} WARNING - --- Logging error ---
+[2022-10-06T15:53:40.130+0000] {logging_mixin.py:117} WARNING - Traceback (most recent call last):
+[2022-10-06T15:53:40.131+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+[2022-10-06T15:53:40.132+0000] {logging_mixin.py:117} WARNING -   File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+[2022-10-06T15:53:40.133+0000] {logging_mixin.py:117} WARNING -   File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+[2022-10-06T15:53:40.137+0000] {logging_mixin.py:117} WARNING -   File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+[2022-10-06T15:53:40.139+0000] {logging_mixin.py:117} WARNING -   File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+[2022-10-06T15:53:40.140+0000] {logging_mixin.py:117} WARNING - ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T15:53:40.141+0000] {logging_mixin.py:117} WARNING - 
+During handling of the above exception, another exception occurred:
+[2022-10-06T15:53:40.142+0000] {logging_mixin.py:117} WARNING - Traceback (most recent call last):
+[2022-10-06T15:53:40.143+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/logging/__init__.py", line 1025, in emit
+    msg = self.format(record)
+[2022-10-06T15:53:40.144+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/logging/__init__.py", line 869, in format
+    return fmt.format(record)
+[2022-10-06T15:53:40.145+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/logging/__init__.py", line 616, in format
+    record.exc_text = self.formatException(record.exc_info)
+[2022-10-06T15:53:40.146+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/logging/__init__.py", line 566, in formatException
+    traceback.print_exception(ei[0], ei[1], tb, None, sio)
+[2022-10-06T15:53:40.147+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/traceback.py", line 104, in print_exception
+    type(value), value, tb, limit=limit).format(chain=chain):
+[2022-10-06T15:53:40.150+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/exceptiongroup/_formatting.py", line 102, in __init__
+    **kwargs,
+[2022-10-06T15:53:40.151+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/traceback.py", line 508, in __init__
+    capture_locals=capture_locals)
+[2022-10-06T15:53:40.153+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/traceback.py", line 363, in extract
+    f.line
+[2022-10-06T15:53:40.154+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/traceback.py", line 285, in line
+    self._line = linecache.getline(self.filename, self.lineno).strip()
+[2022-10-06T15:53:40.156+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/linecache.py", line 16, in getline
+    lines = getlines(filename, module_globals)
+[2022-10-06T15:53:40.157+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/linecache.py", line 47, in getlines
+    return updatecache(filename, module_globals)
+[2022-10-06T15:53:40.160+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/linecache.py", line 137, in updatecache
+    lines = fp.readlines()
+[2022-10-06T15:53:40.164+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/codecs.py", line 319, in decode
+    def decode(self, input, final=False):
+[2022-10-06T15:53:40.168+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+    raise AirflowTaskTimeout(self.error_message)
+[2022-10-06T15:53:40.169+0000] {logging_mixin.py:117} WARNING - airflow.exceptions.AirflowTaskTimeout: DagBag import timeout for /opt/airflow/dags/TweetsDag.py after 30.0s.
+Please take a look at these docs to improve your DAG import time:
+* https://airflow.apache.org/docs/apache-airflow/2.4.1/best-practices.html#top-level-python-code
+* https://airflow.apache.org/docs/apache-airflow/2.4.1/best-practices.html#reducing-dag-complexity, PID: 144
+[2022-10-06T15:53:40.170+0000] {logging_mixin.py:117} WARNING - Call stack:
+[2022-10-06T15:53:40.221+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/bin/airflow", line 8, in <module>
+    sys.exit(main())
+[2022-10-06T15:53:40.231+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/__main__.py", line 39, in main
+    args.func(args)
+[2022-10-06T15:53:40.233+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 52, in command
+    return func(*args, **kwargs)
+[2022-10-06T15:53:40.234+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 99, in wrapper
+    return f(*args, **kwargs)
+[2022-10-06T15:53:40.235+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/scheduler_command.py", line 85, in scheduler
+    _run_scheduler_job(args=args)
+[2022-10-06T15:53:40.236+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/scheduler_command.py", line 50, in _run_scheduler_job
+    job.run()
+[2022-10-06T15:53:40.237+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/jobs/base_job.py", line 247, in run
+    self._execute()
+[2022-10-06T15:53:40.238+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/jobs/scheduler_job.py", line 742, in _execute
+    self.processor_agent.start()
+[2022-10-06T15:53:40.239+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/manager.py", line 161, in start
+    process.start()
+[2022-10-06T15:53:40.240+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/process.py", line 112, in start
+    self._popen = self._Popen(self)
+[2022-10-06T15:53:40.241+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+[2022-10-06T15:53:40.243+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/popen_fork.py", line 20, in __init__
+    self._launch(process_obj)
+[2022-10-06T15:53:40.246+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/popen_fork.py", line 74, in _launch
+    code = process_obj._bootstrap()
+[2022-10-06T15:53:40.250+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/process.py", line 297, in _bootstrap
+    self.run()
+[2022-10-06T15:53:40.252+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/process.py", line 99, in run
+    self._target(*self._args, **self._kwargs)
+[2022-10-06T15:53:40.253+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/manager.py", line 257, in _run_processor_manager
+    processor_manager.start()
+[2022-10-06T15:53:40.256+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/manager.py", line 489, in start
+    return self._run_parsing_loop()
+[2022-10-06T15:53:40.260+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/manager.py", line 553, in _run_parsing_loop
+    self.start_new_processes()
+[2022-10-06T15:53:40.262+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/manager.py", line 1039, in start_new_processes
+    processor.start()
+[2022-10-06T15:53:40.263+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/processor.py", line 212, in start
+    process.start()
+[2022-10-06T15:53:40.264+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/process.py", line 112, in start
+    self._popen = self._Popen(self)
+[2022-10-06T15:53:40.265+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/context.py", line 277, in _Popen
+    return Popen(process_obj)
+[2022-10-06T15:53:40.266+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/popen_fork.py", line 20, in __init__
+    self._launch(process_obj)
+[2022-10-06T15:53:40.267+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/popen_fork.py", line 74, in _launch
+    code = process_obj._bootstrap()
+[2022-10-06T15:53:40.272+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/process.py", line 297, in _bootstrap
+    self.run()
+[2022-10-06T15:53:40.274+0000] {logging_mixin.py:117} WARNING -   File "/usr/local/lib/python3.7/multiprocessing/process.py", line 99, in run
+    self._target(*self._args, **self._kwargs)
+[2022-10-06T15:53:40.275+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/processor.py", line 177, in _run_file_processor
+    _handle_dag_file_processing()
+[2022-10-06T15:53:40.307+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/processor.py", line 161, in _handle_dag_file_processing
+    callback_requests=callback_requests,
+[2022-10-06T15:53:40.307+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 75, in wrapper
+    return func(*args, session=session, **kwargs)
+[2022-10-06T15:53:40.308+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/processor.py", line 761, in process_file
+    dagbag = DagBag(file_path, include_examples=False)
+[2022-10-06T15:53:40.309+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 133, in __init__
+    safe_mode=safe_mode,
+[2022-10-06T15:53:40.310+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 539, in collect_dags
+    found_dags = self.process_file(filepath, only_if_updated=only_if_updated, safe_mode=safe_mode)
+[2022-10-06T15:53:40.311+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 291, in process_file
+    mods = self._load_modules_from_file(filepath, safe_mode)
+[2022-10-06T15:53:40.311+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 356, in _load_modules_from_file
+    return parse(mod_name, filepath)
+[2022-10-06T15:53:40.312+0000] {logging_mixin.py:117} WARNING -   File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 330, in parse
+    self.log.exception("Failed to import: %s", filepath)
+[2022-10-06T15:53:40.313+0000] {logging_mixin.py:117} WARNING - Message: 'Failed to import: %s'
+Arguments: ('/opt/airflow/dags/TweetsDag.py',)
+[2022-10-06T20:45:33.785+0000] {processor.py:156} INFO - Started process (PID=62) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:45:33.787+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:45:33.789+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:45:33.789+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:45:34.621+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:45:34.604+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:45:34.625+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:45:34.702+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.929 seconds
+[2022-10-06T20:46:06.659+0000] {processor.py:156} INFO - Started process (PID=80) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:46:06.854+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:46:06.916+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:46:06.916+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:46:08.740+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:46:08.670+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:46:08.764+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:46:09.316+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 2.690 seconds
+[2022-10-06T20:46:39.601+0000] {processor.py:156} INFO - Started process (PID=97) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:46:39.637+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:46:39.641+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:46:39.641+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:46:41.194+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:46:41.111+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:46:41.212+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:46:41.473+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 1.891 seconds
+[2022-10-06T20:47:11.840+0000] {processor.py:156} INFO - Started process (PID=110) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:47:11.871+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:47:11.881+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:47:11.881+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:47:12.300+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:47:12.281+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:47:12.305+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:47:12.423+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.604 seconds
+[2022-10-06T20:47:43.034+0000] {processor.py:156} INFO - Started process (PID=130) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:47:43.039+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:47:43.041+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:47:43.041+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:47:43.325+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:47:43.306+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:47:43.331+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:47:43.400+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.378 seconds
+[2022-10-06T20:48:14.041+0000] {processor.py:156} INFO - Started process (PID=149) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:48:14.052+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:48:14.056+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:48:14.055+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:48:15.693+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:48:15.515+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:48:15.707+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:48:15.894+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 1.859 seconds
+[2022-10-06T20:48:46.066+0000] {processor.py:156} INFO - Started process (PID=159) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:48:46.068+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:48:46.071+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:48:46.070+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:48:46.576+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:48:46.548+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:48:46.588+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:48:46.693+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.634 seconds
+[2022-10-06T20:49:17.370+0000] {processor.py:156} INFO - Started process (PID=179) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:49:17.372+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:49:17.374+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:49:17.374+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:49:17.708+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:49:17.678+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:49:17.712+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:49:17.775+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.413 seconds
+[2022-10-06T20:49:48.196+0000] {processor.py:156} INFO - Started process (PID=198) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:49:48.197+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:49:48.200+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:49:48.199+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:49:48.564+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:49:48.546+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:49:48.570+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:49:48.645+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.455 seconds
+[2022-10-06T20:50:19.651+0000] {processor.py:156} INFO - Started process (PID=224) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:50:19.654+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:50:19.658+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:50:19.657+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:50:21.314+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:50:20.994+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:50:21.319+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:50:21.347+0000] {processor.py:181} ERROR - Got an exception! Propagating...
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3243, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: connection to server at "postgres" (172.18.0.3), port 5432 failed: FATAL:  the database system is shutting down
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/processor.py", line 177, in _run_file_processor
+    _handle_dag_file_processing()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/processor.py", line 161, in _handle_dag_file_processing
+    callback_requests=callback_requests,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 75, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/processor.py", line 771, in process_file
+    self.update_import_errors(session, dagbag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/dag_processing/processor.py", line 558, in update_import_errors
+    existing_import_error_files = [x.filename for x in session.query(errors.ImportError.filename).all()]
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2759, in all
+    return self._iter().all()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 2897, in _iter
+    execution_options={"_sa_orm_load_options": self.load_options},
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1688, in execute
+    conn = self._connection_for_bind(bind)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 1530, in _connection_for_bind
+    engine, execution_options
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 747, in _connection_for_bind
+    conn = bind.connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3197, in connect
+    return self._connection_cls(self, close_with_result=close_with_result)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 96, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3276, in raw_connection
+    return self._wrap_pool_connect(self.pool.connect, _connection)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3247, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2101, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 3243, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 310, in connect
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 868, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 476, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 146, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 143, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 256, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 371, in __init__
+    self.__connect()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 666, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 72, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 207, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    self.dbapi_connection = connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/create.py", line 590, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 584, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) connection to server at "postgres" (172.18.0.3), port 5432 failed: FATAL:  the database system is shutting down
+
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+[2022-10-06T20:56:01.877+0000] {processor.py:156} INFO - Started process (PID=68) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:56:01.910+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:56:01.914+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:56:01.913+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:56:04.132+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:56:04.109+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:56:04.147+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:56:04.346+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 2.523 seconds
+[2022-10-06T20:56:35.908+0000] {processor.py:156} INFO - Started process (PID=88) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:56:35.920+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:56:35.924+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:56:35.924+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:56:38.176+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:56:38.149+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:56:38.189+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:56:38.454+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 2.634 seconds
+[2022-10-06T20:57:08.928+0000] {processor.py:156} INFO - Started process (PID=106) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:57:08.937+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:57:08.962+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:57:08.962+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:57:12.711+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:57:12.453+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:57:13.034+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:57:13.281+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 4.379 seconds
+[2022-10-06T20:57:43.540+0000] {processor.py:156} INFO - Started process (PID=117) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:57:43.553+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:57:43.559+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:57:43.558+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:57:44.220+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:57:44.150+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:57:44.245+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:57:44.393+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.870 seconds
+[2022-10-06T20:58:14.527+0000] {processor.py:156} INFO - Started process (PID=136) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:58:14.529+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:58:14.531+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:58:14.531+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:58:14.975+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:58:14.942+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:58:14.982+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:58:15.080+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.566 seconds
+[2022-10-06T20:58:45.394+0000] {processor.py:156} INFO - Started process (PID=156) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:58:45.396+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:58:45.397+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:58:45.397+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:58:45.563+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:58:45.553+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:58:45.566+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:58:45.601+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.213 seconds
+[2022-10-06T20:59:16.569+0000] {processor.py:156} INFO - Started process (PID=175) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:59:16.572+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:59:16.574+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:59:16.574+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:59:17.004+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:59:16.978+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:59:17.011+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:59:17.124+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.572 seconds
+[2022-10-06T20:59:47.496+0000] {processor.py:156} INFO - Started process (PID=185) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:59:47.499+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T20:59:47.501+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:59:47.501+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:59:47.789+0000] {logging_mixin.py:117} INFO - [2022-10-06T20:59:47.776+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T20:59:47.795+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T20:59:47.918+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.436 seconds
+[2022-10-06T21:00:18.350+0000] {processor.py:156} INFO - Started process (PID=205) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:00:18.352+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:00:18.354+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:00:18.354+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:00:18.530+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:00:18.519+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:00:18.534+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:00:18.654+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.313 seconds
+[2022-10-06T21:00:48.870+0000] {processor.py:156} INFO - Started process (PID=225) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:00:48.872+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:00:48.874+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:00:48.873+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:00:49.059+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:00:49.048+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:00:49.062+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:00:49.096+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.231 seconds
+[2022-10-06T21:01:19.751+0000] {processor.py:156} INFO - Started process (PID=244) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:01:19.755+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:01:19.758+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:01:19.757+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:01:20.170+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:01:20.148+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:01:20.176+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:01:20.233+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.490 seconds
+[2022-10-06T21:01:50.605+0000] {processor.py:156} INFO - Started process (PID=263) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:01:50.607+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:01:50.610+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:01:50.610+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:01:50.833+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:01:50.823+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:01:50.837+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:01:50.893+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.297 seconds
+[2022-10-06T21:02:21.307+0000] {processor.py:156} INFO - Started process (PID=282) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:02:21.335+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:02:21.338+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:02:21.337+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:02:21.748+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:02:21.735+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:02:21.760+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:02:21.841+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.550 seconds
+[2022-10-06T21:02:52.134+0000] {processor.py:156} INFO - Started process (PID=301) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:02:52.138+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:02:52.141+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:02:52.141+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:02:53.138+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:02:53.109+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:02:53.142+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:02:53.261+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 1.140 seconds
+[2022-10-06T21:03:24.160+0000] {processor.py:156} INFO - Started process (PID=321) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:03:24.184+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:03:24.186+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:03:24.185+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:03:24.652+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:03:24.627+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:03:24.739+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:03:25.015+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.887 seconds
+[2022-10-06T21:03:55.433+0000] {processor.py:156} INFO - Started process (PID=340) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:03:55.446+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:03:55.456+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:03:55.455+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:03:56.802+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:03:56.567+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:03:56.807+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:03:57.033+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 1.646 seconds
+[2022-10-06T21:04:27.361+0000] {processor.py:156} INFO - Started process (PID=349) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:04:27.371+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:04:27.382+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:04:27.381+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:04:28.052+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:04:28.019+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:04:28.061+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:04:28.462+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 1.123 seconds
+[2022-10-06T21:04:59.269+0000] {processor.py:156} INFO - Started process (PID=368) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:04:59.392+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:04:59.552+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:04:59.551+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:05:02.282+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:05:01.672+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:05:02.411+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:05:02.765+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 3.516 seconds
+[2022-10-06T21:05:33.608+0000] {processor.py:156} INFO - Started process (PID=387) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:05:33.610+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:05:33.612+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:05:33.612+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:05:34.002+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:05:33.988+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:05:34.007+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:05:34.080+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.490 seconds
+[2022-10-06T21:06:04.230+0000] {processor.py:156} INFO - Started process (PID=408) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:06:04.231+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:06:04.234+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:06:04.233+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:06:04.415+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:06:04.406+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:06:04.419+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:06:04.463+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.240 seconds
+[2022-10-06T21:06:34.671+0000] {processor.py:156} INFO - Started process (PID=428) to work on /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:06:34.672+0000] {processor.py:758} INFO - Processing file /opt/airflow/dags/TweetsDag.py for tasks to queue
+[2022-10-06T21:06:34.674+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:06:34.674+0000] {dagbag.py:525} INFO - Filling up the DagBag from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:06:34.802+0000] {logging_mixin.py:117} INFO - [2022-10-06T21:06:34.795+0000] {dagbag.py:330} ERROR - Failed to import: /opt/airflow/dags/TweetsDag.py
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/dagbag.py", line 326, in parse
+    loader.exec_module(new_module)
+  File "<frozen importlib._bootstrap_external>", line 728, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/opt/airflow/dags/TweetsDag.py", line 7, in <module>
+    from FetchTweets import Fetchtweets
+  File "/opt/airflow/dags/FetchTweets.py", line 1, in <module>
+    import snscrape.modules.twitter as sntwitter
+ModuleNotFoundError: No module named 'snscrape'
+[2022-10-06T21:06:34.804+0000] {processor.py:770} WARNING - No viable dags retrieved from /opt/airflow/dags/TweetsDag.py
+[2022-10-06T21:06:34.836+0000] {processor.py:178} INFO - Processing /opt/airflow/dags/TweetsDag.py took 0.172 seconds
